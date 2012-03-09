@@ -13,3 +13,7 @@ all:
 
 exer1: 1-1.cpp $(headers)
 	$(recipe)
+
+.PHONY: clean
+clean:
+	@rm -rf exer*
