@@ -23,6 +23,8 @@ exer6: 3-6.cpp $(headers)
 	$(recipe)
 exer7: 3-7.cpp $(headers)
 	$(recipe)
+exer8: 3-8.cpp $(headers)
+	$(recipe)
 
 .PHONY: clean
 clean:
