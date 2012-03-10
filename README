@@ -4,3 +4,22 @@ Programming: Principles and Practice Using C++
 Author: Bjarne Stroustrup
 Publisher: Addison-Wesley Professional; 1st edition
 ISBN-10: 0321543726
+
+Solutions use only language features/constructs introduced prior to the exercise.
+Because of this, some solutions may be longer then needed.
+
+Build solutions:
+Go to directory of solution:
+	$ cd src/chapter_3
+
+Run make with "exerX" as an argument where X is the exercise number:
+	$ make exer2
+
+Run solution:
+	$ ./exer2
+
+Remove all executables:
+	$ make clean
+
+LICENSE:
+http://creativecommons.org/licenses/by/3.0/legalcode
