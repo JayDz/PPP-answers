@@ -11,7 +11,7 @@ recipe = $(CC) $(CPPFLAGS) $(IGNORE) $< -o $@
 all: 
 	@echo "USAGE <make exerX> where X is exercise number."
 
-exer1: 1-1.cpp $(headers)
+exer2: 3-2.cpp $(headers)
 	$(recipe)
 
 .PHONY: clean
