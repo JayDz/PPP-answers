@@ -12,27 +12,17 @@ int main()
 	int val2;
 	cin >> val1 >> val2;
 
-	int smallest;
-	int largest;
-	if (val1 > val2){
-		largest  = val1;
-		smallest = val2;
-	}else {
-		largest  = val2;
-		smallest = val1;
-	}
+	if (val1 > val2)
+		cout << "The largest is: " << val1 << endl
+		     << "The smallest is: " << val2 << endl;
+	else
+		cout << "The largest is: " << val2 << endl
+		     << "The smallest is: " << val1 << endl;
 
-	int sum        = val1 + val2;
-	int difference = val1 - val2;
-	int product    = val1 * val2;
-	int ratio      = val1 / val2;
+	cout << "The sum is: "        << val1 + val2 << endl;
+	cout << "The difference is: " << val1 - val2 << endl;
+	cout << "The product is: "    << val1 * val2 << endl;
+	cout << "The ratio is: "      << val1 / val2 << endl;
 
-	cout << "\nThe smallest is: "   << smallest;
-	cout << "\nThe largest is: "    << largest;
-	cout << "\nThe sum is: "        << sum;
-	cout << "\nThe difference is: " << difference;
-	cout << "\nThe product is: "    << product;
-	cout << "\nThe ratio is: "      << ratio;
-	cout << '\n';
 	return 0;
 }
