@@ -13,6 +13,8 @@ all:
 
 exer2: 3-2.cpp $(headers)
 	$(recipe)
+exer3: 3-3.cpp $(headers)
+	$(recipe)
 
 .PHONY: clean
 clean:
