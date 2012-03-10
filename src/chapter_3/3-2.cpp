@@ -8,13 +8,13 @@
 
 int main()
 {
-	cout<<"Enter the number of miles to covert into kilometers: ";
+	cout << "Enter the number of miles to covert into kilometers: ";
 	double miles;
-	cin>>miles;
+	cin>> miles;
 
 	double km_in_a_mile = 1.609;
-	cout<<"The kilometer equivalent of "<<miles<<" miles is: "
-	<< km_in_a_mile * miles<<'\n';
+	cout << "The kilometer equivalent of " << miles << " miles is: "
+	<< km_in_a_mile * miles <<'\n';
 
 	return 0;
 }
