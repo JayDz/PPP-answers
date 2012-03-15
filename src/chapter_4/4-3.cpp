@@ -13,8 +13,12 @@ int main()
 
 	double distance;
 	while (cin >> distance) {
-		distances.push_back(distance);
-		sum_distance += distance;
+		if (distance < 0)
+			cout << "Invalid distance." << endl;
+		else { 
+			distances.push_back(distance);
+			sum_distance += distance;
+		}
 	}
 
 	cout << "The total distance is: " << sum_distance << endl;
