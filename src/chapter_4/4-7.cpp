@@ -64,7 +64,7 @@ int main()
 			break;
 		case '*':
 			cout << "The product of " << left_op << " and " << right_op
-		      	 << " is: " << convert_to_digit(left_op) * convert_to_digit(right_op) << endl;
+		      	 << " is: " << left * right << endl;
 			break;
 		case '/':
 			if (right == 0)
