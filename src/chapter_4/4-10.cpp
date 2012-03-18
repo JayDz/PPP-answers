@@ -78,9 +78,9 @@ int main()
 			continue_game = 0;
 		}
 		else if (user_choice == 3) { // Quit game was requested.
-            cout << "Goodbye!" << endl;
+			cout << "Goodbye!" << endl;
 			continue_game = 0;
-        }
+		}
 		else { // Play game.
 			const int rock    = 0;
 			const int paper   = 1;
@@ -124,9 +124,9 @@ int main()
 			}
 	
 			cout << "Your score is:" << endl 
-                 << "Wins: " << user_wins << endl 
-				 << "Losses: " << cpu_wins << endl 
-				 << "Draws: " << draws << endl;
+				<< "Wins: " << user_wins << endl 
+				<< "Losses: " << cpu_wins << endl 
+				<< "Draws: " << draws << endl;
 		}
 	}
 	return 0;

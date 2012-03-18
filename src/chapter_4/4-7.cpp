@@ -57,7 +57,7 @@ int main()
 		case '+': 
 			cout << "The sum of " << left_op << " and " << right_op
 		         << " is: " << left + right << endl;
-	    	break;
+			break;
 		case '-':
 			cout << "The difference of " << left_op << " and " << right_op
 		    	 << " is: " << left -right << endl;
