@@ -1,7 +1,7 @@
 /*
 	Jeffrey Diaz - jeffreydiaz27@gmail.com
 	Chapter 4 exercise 12
-	Page 127
+	Page 128
 */
 #include "std_lib_facilities.h"
 
