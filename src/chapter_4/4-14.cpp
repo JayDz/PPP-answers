@@ -47,7 +47,7 @@ int main()
 		}
 	}
 	else
-		cout << "Max must be greater than one." << endl;
+		cout << "Max must be greater than zero." << endl;
 
 	return 0;
 }
