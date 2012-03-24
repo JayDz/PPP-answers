@@ -61,7 +61,7 @@ int main()
 			}
 
 			if (found_score == 0)
-				cout << "name not found." << endl;
+				cout << "score not found." << endl;
 			else {
 				cout << "The names for score " << score << " are:" << endl;
 				for (int i = 0; i < output.size(); ++i)
