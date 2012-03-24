@@ -1,29 +1,33 @@
 /*
 	Jeffrey Diaz - jeffreydiaz27@gmail.com
-	Chapter 4 exercise 16
+	Chapter 4 exercise 17
 	Page 128
 */
 #include "std_lib_facilities.h"
 
 int main()
 {
-	vector<double> sequence;
+	vector<string> sequence;
 
-	cout << "Enter a sequence of positive numbers and | to finish input: ";
-	double val;
-	while (cin >> val) {
-		if (val > 0)
+	cout << "Enter a sequence of strings and @stop to finish input: ";
+	int keep_looping = 1;
+	while (keep_looping == 1) {
+		string val;
+		cin >> val;
+		if (val != "@stop")
 			sequence.push_back(val);
-		else
-			cout << val << " not recorded, input must be a positive integer." << endl;
+		else 
+			keep_looping = 0;
 	}
 	
 	if (sequence.size() > 0) {
 
 		sort(sequence.begin(), sequence.end());
-		
-		vector<int> frequency; // Will contain the frequency of each unique digit in sequence.
-		int count = 1;
+		string min = sequence[0];
+		string max = sequence[sequence.size() - 1];
+
+		vector<int> frequency; // Will contain the frequency of each unique string in sequence.
+		double count = 1;
 		for (int i = 1; i < sequence.size(); ++i) {
 			if (sequence[i] != sequence[i - 1]) {
 				frequency.push_back(count);
@@ -46,13 +50,15 @@ int main()
 		
 		// Create a set out of the vector sequence. Contains no recurrences.
 		// Needed so we can print out the correct mode indicated by variable index_of_largest.
-		vector<double> unique_seq;
+		vector<string> unique_seq;
 		unique_seq.push_back(sequence[0]);
 		for (int i = 1; i < sequence.size(); ++i) {
 			if (sequence[i] != sequence[i - 1])
 				unique_seq.push_back(sequence[i]);
 		}
-		
+
+		cout << "The min is " << min << "." << endl;
+		cout << "The max is " << max << "." << endl;
 		cout << "The mode is " << unique_seq[index_of_largest];
 		cout << ". The number of times it appeared is " << largest_freq << "." << endl;
 		
