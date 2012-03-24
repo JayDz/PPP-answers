@@ -15,10 +15,12 @@ int main()
 
 	double x1;
 	double x2;
-
+	
 	double check_if_imaginary = (b*b) - (4*a*c);
 	if (check_if_imaginary < 0)
 		cout << "Sorry, I cannot handle complex solutions." << endl;
+	else if (a == 0)
+		cout << "Since a == 0, the equation is no longer quadratic." << endl;
 	else {
 		x1 = (-b) / (2*a);
 		x2 = x1;
