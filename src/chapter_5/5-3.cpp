@@ -18,7 +18,7 @@ int main()
 	double c = 0;
 	cin >> c;
 	const double min_c = -273.15;
-	if (c <= min_c) error("The lowest temperature that can be reached is: -273.15 Celsius.\n");
+	if (c < min_c) error("The lowest temperature that can be reached is: -273.15 Celsius.\n");
 	double k = ctok(c);
 	cout << k << endl;
 

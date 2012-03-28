@@ -7,9 +7,8 @@
 
 double ctok(double c)	// converts Celsius to Kelvin
 {
-
 	const double min_c = -273.15;
-	if (c <= min_c) error("The lowest temperature that can be reached is: -273.15 Celsius.\n");
+	if (c < min_c) error("The lowest temperature that can be reached is: -273.15 Celsius.\n");
 	
 	const double kelvin_factor = 273.15;
 	double k = c + kelvin_factor;
