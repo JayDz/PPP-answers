@@ -32,8 +32,12 @@ int main()
 	double b;
 	double c;
 	cin >> a >> b >> c;
-
+	
 	if (cin) {
+		if (a == 0) {
+			cerr << "Since a = 0 you no longer have a quadratic equation." << endl;
+			return 1;
+		}
 		try {
 			print_roots(a,b,c);
 		}
@@ -41,8 +45,10 @@ int main()
 			cerr << "Sorry, program cannot handle complex solutions!" << endl;
 		}
 	}
-	else
-		cout << "There was a problem with your input." << endl;
+	else {
+		cerr << "There was a problem with your input." << endl;
+		return 2;
+	}
 
 	return 0;
 }
