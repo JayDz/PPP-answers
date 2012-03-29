@@ -34,21 +34,18 @@ int main()
 	cin >> a >> b >> c;
 	
 	if (cin) {
-		if (a == 0) {
-			cerr << "Since a = 0 you no longer have a quadratic equation." << endl;
-			return 1;
-		}
+		if (a == 0) 
+			error("Since a = 0 you no longer have a quadratic equation.");
+			
 		try {
 			print_roots(a,b,c);
 		}
 		catch(Complex_number_error&) {
-			cerr << "Sorry, program cannot handle complex solutions!" << endl;
+			error("Sorry, program cannot handle complex solutions!");
 		}
 	}
-	else {
-		cerr << "There was a problem with your input." << endl;
-		return 2;
-	}
-
+	else 
+		error("There was a problem with your input.");
+		
 	return 0;
 }
