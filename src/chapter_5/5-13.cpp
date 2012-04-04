@@ -10,6 +10,8 @@ int main()
 	cout << "To help the game run please enter a number: ";
 	int n;
 	cin >> n;
+	if (!cin)
+		error("Input error.");
 	srand(n);
 
 	vector<int> winning_numbers(4);
@@ -33,20 +35,27 @@ int main()
 			while (guesses < 4) { 	//get number from user and check if it's a bull or cow.
 				int num;
 				cin >> num;
-
-				if (num < 0 || num > 9)
-					cout << "Please enter a digit in the range 0 to 9.\n";
-				else {
-					for ( int i = 0; i < winning_numbers.size(); ++i) {
-						if (num == winning_numbers[i]) {
-							if (guesses == i)
-								++bulls;
-							else
-								++cows;
+				if (cin) {
+					if (num < 0 || num > 9)
+						cout << "Please enter a digit in the range 0 to 9.\n";
+					else {
+						for ( int i = 0; i < winning_numbers.size(); ++i) {
+							if (num == winning_numbers[i]) {
+								if (guesses == i)
+									++bulls;
+								else
+									++cows;
+							}
 						}
-					}
-					++guesses;
-				}		
+						++guesses;
+					}		
+				}
+				else {
+					cerr << "Input error. Try again.\n";
+					cin.clear(); //clear bad state and clean up garbage.
+					string garbage;
+					cin >> garbage;
+				}
 			}
 
 			if (bulls != 4)

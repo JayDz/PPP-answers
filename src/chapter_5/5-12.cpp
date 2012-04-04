@@ -25,20 +25,27 @@ int main()
 		while (guesses < 4) {
 			int num;
 			cin >> num;
-
-			if (num < 0 || num > 9)
-				cout << "Please enter a digit in the range 0 to 9.\n";
-			else {
-				for ( int i = 0; i < winning_numbers.size(); ++i) {
-					if (num == winning_numbers[i]) {
-						if (guesses == i)
-							++bulls;
-						else
-							++cows;
+			if (cin) {
+				if (num < 0 || num > 9)
+					cout << "Please enter a digit in the range 0 to 9.\n";
+				else {
+					for ( int i = 0; i < winning_numbers.size(); ++i) {
+						if (num == winning_numbers[i]) {
+							if (guesses == i)
+								++bulls;
+							else
+								++cows;
+						}
 					}
-				}
 				++guesses;
-			}		
+				}		
+			}
+			else {
+				cerr << "Input error. Try again.\n";
+				cin.clear(); // Clear bad state and pick up garbage left over.
+				string garbage;
+				cin >> garbage;
+			}
 		}
 
 		if (bulls != 4)
