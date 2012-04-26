@@ -6,20 +6,16 @@
 #include "std_lib_facilities.h"
 
 int main()
-{
-	vector<int> numbers;
-	
-	cout << "Please enter some numbers (press '|' at prompt to stop): ";
-	int val;
-	while (cin >> val)
-		numbers.push_back(val);
-	cin.clear(); //After loop ends cin will be in bad state, will skip all prompts below if not cleared.
-	string junk;
-	cin >> junk; //Clean up.
-
+{		
 	cout << "Please enter how many of the numbers you wish to sum, starting from the first: ";
 	int n;
 	cin >> n;
+
+	cout << "Please enter some numbers (press '|' at prompt to stop): ";
+	vector<int> numbers;
+	int val;
+	while (cin >> val)
+		numbers.push_back(val);
 
 	if (n < 0) {
 		cerr << "Cannot sum a negative number of numbers." << endl;
