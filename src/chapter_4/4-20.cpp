@@ -31,8 +31,8 @@ int main()
 					name_has_been_seen = 1;
 
 			if (name_has_been_seen == 0) {
-					names.push_back(str_val);
-					scores.push_back(int_val);
+				names.push_back(str_val);
+				scores.push_back(int_val);
 			}
 			else 
 				cout << "A name cannot be entered twice!" << endl;
