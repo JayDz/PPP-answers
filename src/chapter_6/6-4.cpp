@@ -22,12 +22,12 @@ int main()
 	string str_val;
 	int int_val;
 	while (cin >> str_val >> int_val) {
-		int name_has_been_seen = 0;
+		bool name_has_been_seen = false;
 		for (int i = 0; i < pairs.size(); ++i) 
 			if (str_val == pairs[i].name)
-				name_has_been_seen = 1;
+				name_has_been_seen = true;
 		
-		if (name_has_been_seen == 0) 
+		if (!name_has_been_seen) 
 			pairs.push_back(Name_value(str_val, int_val));
 		else {
 			cout << "A name cannot be entered twice!" << endl;
