@@ -1,0 +1,24 @@
+English Grammar:
+
+Sentence:
+	Noun Verb
+	Sentence Conjunction Sentence
+	Article Sentence
+
+Conjunction:
+	"and"
+	"or"
+	"but"
+
+Noun: 
+	"birds"
+	"fish"
+	"C++"
+
+Verb:
+	"rules"
+	"fly"
+	"swim"
+
+Article:
+	"the"
