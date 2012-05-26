@@ -1,0 +1,18 @@
+Chapter 6 exercise 7: Grammar for logical expressions.
+
+Expression:
+	Term
+	Expression '|' Term
+	'!' Expression
+	'~' Expression
+Term:
+	Secondary
+	Term '^' Secondary
+Secondary:
+	Primary
+	Secondary '&' Primary
+Primary:
+	Number
+	'('Expression')'
+Number:
+	Floating-point number
