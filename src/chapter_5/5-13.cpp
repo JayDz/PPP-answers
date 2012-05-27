@@ -50,12 +50,8 @@ int main()
 						++guesses;
 					}		
 				}
-				else {
-					cerr << "Input error. Try again.\n";
-					cin.clear(); //clear bad state and clean up garbage.
-					string garbage;
-					cin >> garbage;
-				}
+				else
+					error("Input error detected.");
 			}
 
 			if (bulls != 4)
