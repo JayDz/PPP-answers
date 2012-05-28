@@ -27,10 +27,7 @@ int permutation(int a, int b)
 	//post-condition: the permutation of a and b is calculated.
 {
 	if ( a < 0 || 0 > b) error("a, and b must be positive integers.");
-	int numerator = factorial(a);
-	int demon = factorial(a-b);
-	
-	return numerator / demon;
+	return factorial(a) / factorial(a-b);
 		
 }
 int combination(int a, int b)
@@ -38,10 +35,7 @@ int combination(int a, int b)
 	//post-condition: the combination of a and b is calculated.
 {
 	if (a < 0 || 0 > b) error("a, and b must be positive integers.");
-	int numerator = permutation(a,b);
-	int demon = factorial(b);
-
-	return numerator / demon;
+	return permutation(a,b) / factorial(b);
 }
 
 int main()
