@@ -43,7 +43,7 @@ void set_value(string s, double d)
 			if (var_table[i].is_var)
 				var_table[i].value = d;
 			else
-				error(s, "set: variable is const");
+				error(s, " is const");
 			return;
 		}
 		error("set: undefined variable", s);
