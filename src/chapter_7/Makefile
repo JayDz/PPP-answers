@@ -26,10 +26,6 @@ exer7: 7-7.cpp $(headers)
 	$(recipe)
 exer9: 7-9.cpp $(headers)
 	$(recipe)
-exer10: 7-10.cpp $(headers)
-	$(recipe)
-exer11: 7-11.cpp $(headers)
-	$(recipe)
 .PHONY: clean
 clean:
 	@rm -rf exer*
