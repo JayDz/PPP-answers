@@ -330,8 +330,8 @@ void display_help()
 	cout << "It is also possible to introduce symbolic constants (const k = 1000;).\n";
 	cout << "----------------------------------------------------------------------\n";
 	cout << "Commands available:\n";
-	cout << "h for help menu.\n";
-	cout << "q to exit program.\n";
+	cout << "\th \t\tdisplay help menu.\n";
+	cout << "\tq \t\texit program.\n";
 }
 
 void calculate()
