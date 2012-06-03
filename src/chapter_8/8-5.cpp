@@ -42,8 +42,8 @@ int main()
 		v.push_back(n);
 	
 	cout << "Reversing with reverse1(): ";
-	vector<int> r_copy = reverse1(v);
-	print(r_copy);
+	v = reverse1(v);
+	print(v);
 
 	cout << "Reversing with reverse2(): ";
 	reverse2(v);
