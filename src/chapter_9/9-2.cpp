@@ -4,7 +4,7 @@
 */
 #include "std_lib_facilities.h"
 
-//avoid name collision between sort() and Name_pairs::sort()
+//helps avoid name collision between sort() and Name_pairs::sort()
 vector<string>& sort_names(vector<string>& name);
 
 class Name_pairs {
@@ -30,7 +30,11 @@ void Name_pairs::read_names()
 void Name_pairs::read_ages()
 {
 	if (name.size() > 0) {
-		for (int i = 0; i < name.size(); ++i) {
+		int index = 0;
+		if (age.size() > 0) //we've been here before! Lets not overwrite previous ages.
+			index = age.size();
+			
+		for (int i = index; i < name.size(); ++i) {
 			cout << "Please enter the age of " << name[i] << ": ";
 			int input;
 			cin >> input;
@@ -73,8 +77,8 @@ void Name_pairs::sort()
 }
 
 //helper function:
-//needed because Name_pairs::sort() hides the sort() function when
-//called by a member function. sort() is provided by std_lib_facilities.h.
+//needed because Name_pairs::sort() hides sort() when
+//called in a member function. sort() is provided by std_lib_facilities.h.
 //Without helper function, we get a compile-time error from g++.
 vector<string>& sort_names(vector<string>& name)
 {
@@ -85,10 +89,23 @@ vector<string>& sort_names(vector<string>& name)
 int main()
 {
 	Name_pairs pairs;
+	
+	pairs.read_names();
+	pairs.read_ages();
+	cout << endl;
+	pairs.print();
+	
+	cout << "\nSorted names:\n";
+	pairs.sort();
+	pairs.print();
+	cout << endl;
+	
+	cout << "\nLets put some more names in.\n";
 	pairs.read_names();
 	pairs.read_ages();
 	pairs.print();
-	cout << "Sorted names:\n";
+	
+	cout << "\nSorted names:\n";
 	pairs.sort();
 	pairs.print();
 	return 0;
