@@ -109,39 +109,44 @@ vector<string>& sort_names(vector<string>& name)
 
 int main()
 {
-	Name_pairs pairs;
+	try {
+		Name_pairs pairs;
 	
-	pairs.read_names();
-	pairs.read_ages();
-	cout << endl;
-	cout << pairs;
+		pairs.read_names();
+		pairs.read_ages();
+		cout << endl;
+		cout << pairs;
 	
-	cout << "\nSorted names:\n";
-	pairs.sort();
-	cout << pairs;
-	cout << endl;
+		cout << "\nSorted names:\n";
+		pairs.sort();
+		cout << pairs;
+		cout << endl;
 	
-	cout << "\nLets put some more names in.\n";
-	pairs.read_names();
-	pairs.read_ages();
-	cout << pairs;
+		cout << "\nLets put some more names in.\n";
+		pairs.read_names();
+		pairs.read_ages();
+		cout << pairs;
 	
-	cout << "\nSorted names:\n";
-	pairs.sort();
-	cout << pairs;
+		cout << "\nSorted names:\n";
+		pairs.sort();
+		cout << pairs;
 
-	cout << "\nLets create another object:\n";
-	Name_pairs pairs2;
-	pairs2.read_names();
-	pairs2.read_ages();
-	cout << pairs2;
+		cout << "\nLets create another object:\n";
+		Name_pairs pairs2;
+		pairs2.read_names();
+		pairs2.read_ages();
+		cout << pairs2;
 	
-	cout << "\nLets check for equality\n";
-	pairs2.sort(); //sort before checking since pairs is sorted also.
+		cout << "\nLets check for equality\n";
+		pairs2.sort(); //sort before checking since pairs is sorted also.
 
-	if (pairs == pairs2) 
-		cout << "The objects are equal.\n";
-	if (pairs != pairs2) 
-		cout << "The objects are not equal.\n";
+		if (pairs == pairs2) 
+			cout << "The objects are equal.\n";
+		if (pairs != pairs2) 
+			cout << "The objects are not equal.\n";
+	}
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }

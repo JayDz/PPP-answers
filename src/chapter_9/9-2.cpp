@@ -88,25 +88,30 @@ vector<string>& sort_names(vector<string>& name)
 
 int main()
 {
-	Name_pairs pairs;
+	try {
+		Name_pairs pairs;
 	
-	pairs.read_names();
-	pairs.read_ages();
-	cout << endl;
-	pairs.print();
+		pairs.read_names();
+		pairs.read_ages();
+		cout << endl;
+		pairs.print();
 	
-	cout << "\nSorted names:\n";
-	pairs.sort();
-	pairs.print();
-	cout << endl;
+		cout << "\nSorted names:\n";
+		pairs.sort();
+		pairs.print();
+		cout << endl;
 	
-	cout << "\nLets put some more names in.\n";
-	pairs.read_names();
-	pairs.read_ages();
-	pairs.print();
+		cout << "\nLets put some more names in.\n";
+		pairs.read_names();
+		pairs.read_ages();
+		pairs.print();
 	
-	cout << "\nSorted names:\n";
-	pairs.sort();
-	pairs.print();
+		cout << "\nSorted names:\n";
+		pairs.sort();
+		pairs.print();
+	}
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }
