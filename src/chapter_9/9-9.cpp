@@ -1,5 +1,5 @@
 /*
-	chapter 9 exercise 7
+	chapter 9 exercise 9
 	page 334
 */
 #include "std_lib_facilities.h"
