@@ -40,34 +40,39 @@ int combination(int a, int b)
 
 int main()
 {
-	cout << "Please enter two positive numbers: ";
-	int a;
-	int b;
-	cin >> a >> b;
+	try {
+		cout << "Please enter two positive numbers: ";
+		int a;
+		int b;
+		cin >> a >> b;
+		
+		if (cin) {
+			int answer;
+			bool valid_choice = false;
+			while (!valid_choice) {
+				cout << "Operation: To calculate permutation enter p, or c for combination: ";
+				char choice;
+				cin >> choice;
 	
-	if (cin) {
-		int answer;
-		bool valid_choice = false;
-		while (!valid_choice) {
-			cout << "Operation: To calculate permutation enter p, or c for combination: ";
-			char choice;
-			cin >> choice;
-	
-			if (choice == 'p' || choice == 'P') {
-				answer = permutation(a,b);
-				valid_choice = true;
+				if (choice == 'p' || choice == 'P') {
+					answer = permutation(a,b);
+					valid_choice = true;
+				}
+				else if (choice == 'c' || choice == 'C') {
+					answer = combination(a,b);
+					valid_choice = true;
+				}
+				else
+					cout << "Invalid option." << endl;
 			}
-			else if (choice == 'c' || choice == 'C') {
-				answer = combination(a,b);
-				valid_choice = true;
-			}
-			else
-				cout << "Invalid option." << endl;
-		}
 
-		cout << "result = " << answer << endl;
+			cout << "result = " << answer << endl;
+		}
+		else
+			cout << "Invalid input.\n";
 	}
-	else
-		cout << "Invalid input.\n";
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }

@@ -59,49 +59,54 @@ void print_thousands(char ch)
 }
 int main()
 {
-	vector<char> digits;
-	cout << "Enter a positive integer containing 4 or less digits followed by a semi-colon (e.g. 200;): ";
-	char ch;
-	cin >> ch;
-	while (ch != ';') {
-		if (ch < '0' || ch > '9')
-			error("Invalid digit entered.");
-		digits.push_back(ch - '0');
+	try {
+		vector<char> digits;
+		cout << "Enter a positive integer containing 4 or less digits followed by a semi-colon (e.g. 200;): ";
+		char ch;
 		cin >> ch;
-	}
+		while (ch != ';') {
+			if (ch < '0' || ch > '9')
+				error("Invalid digit entered.");
+			digits.push_back(ch - '0');
+			cin >> ch;
+		}
 
-	if (digits.size() == 0) error("No digits entered.");
-	if (digits.size() > 4)  error("Cannot handle more than four digits.");
-	int number = 0;
-	for (int i = 0; i < digits.size(); ++i)
-		number = number * 10 + digits[i];
+		if (digits.size() == 0) error("No digits entered.");
+		if (digits.size() > 4)  error("Cannot handle more than four digits.");
+		int number = 0;
+		for (int i = 0; i < digits.size(); ++i)
+			number = number * 10 + digits[i];
 
-	cout << number << " is ";
+		cout << number << " is ";
 
-	switch (digits.size()) {
-	case 1: 
-		print_ones(digits[0]);
-		break;
-	case 2:
-		print_tens(digits[0]);
-		print_conjunction = true;
-		print_ones(digits[1]);
-		break;
-	case 3:
-		print_hundreds(digits[0]);
-		print_conjunction = true;
-		print_tens(digits[1]);
-		print_ones(digits[2]);
-		break;
-	case 4:
-		print_thousands(digits[0]);
-		print_conjunction = true;
-		print_hundreds(digits[1]);
-		print_tens(digits[2]);
-		print_ones(digits[3]);
-		break;
-	}
+		switch (digits.size()) {
+		case 1: 
+			print_ones(digits[0]);
+			break;
+		case 2:
+			print_tens(digits[0]);
+			print_conjunction = true;
+			print_ones(digits[1]);
+			break;
+		case 3:
+			print_hundreds(digits[0]);
+			print_conjunction = true;
+			print_tens(digits[1]);
+			print_ones(digits[2]);
+			break;
+		case 4:
+			print_thousands(digits[0]);
+			print_conjunction = true;
+			print_hundreds(digits[1]);
+			print_tens(digits[2]);
+			print_ones(digits[3]);
+			break;
+		}
 	
-	cout << ".\n";
+		cout << ".\n";
+	}
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }
