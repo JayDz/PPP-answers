@@ -42,26 +42,30 @@ int find_longest_str(const vector<int>& v)
 
 int main()
 {
-	cout << "Enter input (enter \"quit\" to exit loop): ";
-	vector<string> input;
-	string val;
-	while (cin >> val && val != "quit")
-		input.push_back(val);
+	try {
+		cout << "Enter input (enter \"quit\" to exit loop): ";
+		vector<string> input;
+		string val;
+		while (cin >> val && val != "quit")
+			input.push_back(val);
 	
-	if (input.size() < 1) error("Need some input.");
+		if (input.size() < 1) error("Need some input.");
 
-	vector<int> count = char_count(input);
+		vector<int> count = char_count(input);
 
-	cout << "\nCharacter count:\n";
-	for (int i = 0; i < input.size(); ++i)
-		cout << input[i] << " has " << count[i] << " character[s].\n";
+		cout << "\nCharacter count:\n";
+		for (int i = 0; i < input.size(); ++i)
+			cout << input[i] << " has " << count[i] << " character[s].\n";
 	
-	cout << "\nThe shortest string is: " << input[find_shortest_str(count)] << endl;
-	cout << "The longest string is: " << input[find_longest_str(count)] << endl;
+		cout << "\nThe shortest string is: " << input[find_shortest_str(count)] << endl;
+		cout << "The longest string is: " << input[find_longest_str(count)] << endl;
 
-	sort(input.begin(),input.end());
-	cout << "Lexicographically first is: " << input[0] << endl;
-	cout << "Lexicographically last is: " << input[input.size()-1] << endl;
-
+		sort(input.begin(),input.end());
+		cout << "Lexicographically first is: " << input[0] << endl;
+		cout << "Lexicographically last is: " << input[input.size()-1] << endl;
+	}
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }

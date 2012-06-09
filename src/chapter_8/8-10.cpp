@@ -18,17 +18,22 @@ double compute_index(const vector<double>& price, const vector<double>& weight)
 
 int main()
 {
-	vector<double> price;
-	vector<double> weight;
+	try {
+		vector<double> price;
+		vector<double> weight;
 	
-	cout << "Enter price and weight pairs (or a non-digit to end input loop): ";
-	double p;
-	double w;
-	while (cin >> p >> w) {
-		price.push_back(p);
-		weight.push_back(w);
-	}
+		cout << "Enter price and weight pairs (or a non-digit to end input loop): ";
+		double p;
+		double w;
+		while (cin >> p >> w) {
+			price.push_back(p);
+			weight.push_back(w);
+		}
 
-	cout << "The computed index is: " << compute_index(price,weight) << endl;
+		cout << "The computed index is: " << compute_index(price,weight) << endl;
+	}
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }

@@ -40,20 +40,24 @@ Vector_data get_data(const vector<double>& v)
 
 int main()
 {
-	cout << "Enter a sequence of numbers (non-digit character to exit loop): ";
-	vector<double> seq;
-	double val;
-	while (cin >> val)
-		seq.push_back(val);
+	try {
+		cout << "Enter a sequence of numbers (non-digit character to exit loop): ";
+		vector<double> seq;
+		double val;
+		while (cin >> val)
+			seq.push_back(val);
 	
-	if (seq.size() < 2) error("Give me more numbers.");
+		if (seq.size() < 2) error("Give me more numbers.");
 
-	Vector_data data = get_data(seq);
+		Vector_data data = get_data(seq);
 
-	cout << "The largest element is: " << data.largest << endl;
-	cout << "The smallest element is: " << data.smallest << endl;
-	cout << "The mean is: " << data.mean << endl;
-	cout << "The median is: " << data.median << endl;
-
+		cout << "The largest element is: " << data.largest << endl;
+		cout << "The smallest element is: " << data.smallest << endl;
+		cout << "The mean is: " << data.mean << endl;
+		cout << "The median is: " << data.median << endl;
+	}
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }

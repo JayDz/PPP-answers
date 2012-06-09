@@ -43,19 +43,24 @@ void update_pairs(vector<double>& age, const vector<string>& name, const vector<
 
 int main()
 {
-	vector<string> name;
-	vector<double> age;
+	try {
+		vector<string> name;
+		vector<double> age;
 
-	get_names(name);
-	get_ages(age,name.size());
-	print_pairs(name,age);
+		get_names(name);
+		get_ages(age,name.size());
+		print_pairs(name,age);
 
-	vector<string> name_copy = name;
-	sort(name.begin(),name.end());
+		vector<string> name_copy = name;
+		sort(name.begin(),name.end());
 	
-	update_pairs(age,name,name_copy);
+		update_pairs(age,name,name_copy);
 
-	cout << "\nSorted pairs:\n\n";
-	print_pairs(name,age);
+		cout << "\nSorted pairs:\n\n";
+		print_pairs(name,age);
+	}
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }
