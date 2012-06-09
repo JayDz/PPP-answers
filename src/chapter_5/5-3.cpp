@@ -15,12 +15,16 @@ double ctok(double c)	// converts Celsius to Kelvin
 
 int main()
 {
-	double c = 0;
-	cin >> c;
-	const double min_c = -273.15;
-	if (c < min_c) error("The lowest temperature that can be reached is: -273.15 Celsius.\n");
-	double k = ctok(c);
-	cout << k << endl;
-
+	try {
+		double c = 0;
+		cin >> c;
+		const double min_c = -273.15;
+		if (c < min_c) error("The lowest temperature that can be reached is: -273.15 Celsius.\n");
+		double k = ctok(c);
+		cout << k << endl;
+	}
+	catch(runtime_error e) {
+		cerr << e.what();
+	}
 	return 0;
 }

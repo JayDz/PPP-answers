@@ -31,24 +31,28 @@ double ftoc(double fahrenheit)
 
 int main()
 {
-	cout << "This program can convert Celsius to Fahrenheit and vice-versa.\n";
-	cout << "To convert fahrenheit to celsius type in: 45f or 45c for celsius to fahrenheit.\n";
-	double temp;
-	string temp_type;
-	cin >> temp >> temp_type;
+	try {
+		cout << "This program can convert Celsius to Fahrenheit and vice-versa.\n";
+		cout << "To convert fahrenheit to celsius type in: 45f or 45c for celsius to fahrenheit.\n";
+		double temp;
+		string temp_type;
+		cin >> temp >> temp_type;
 
-	if (temp_type == "c") {
-		double f = ctof(temp);
-		cout << "The fahrenheit equivalent of " << temp << " celsius is: " << f << endl;
+		if (temp_type == "c") {
+			double f = ctof(temp);
+			cout << "The fahrenheit equivalent of " << temp << " celsius is: " << f << endl;
+		}
+		else if (temp_type == "f") {
+			double c = ftoc(temp);
+			cout << "The celsius equivalent of " << temp << " fahrenheit is: " << c << endl;
+		}
+		else {
+			cerr << "Invalid input.\n";
+			return 1;
+		}
 	}
-	else if (temp_type == "f") {
-		double c = ftoc(temp);
-		cout << "The celsius equivalent of " << temp << " fahrenheit is: " << c << endl;
+	catch(runtime_error e) {
+		cerr << e.what();
 	}
-	else {
-		cerr << "Invalid input.\n";
-		return 1;
-	}
-
 	return 0;
 }

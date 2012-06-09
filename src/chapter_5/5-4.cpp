@@ -18,10 +18,14 @@ double ctok(double c)	// converts Celsius to Kelvin
 
 int main()
 {
-	double c = 0;
-	cin >> c;
-	double k = ctok(c);
-	cout << k << endl;
-
+	try {
+		double c = 0;
+		cin >> c;
+		double k = ctok(c);
+		cout << k << endl;
+	}
+	catch(runtime_error e) {
+		cerr << e.what();
+	}
 	return 0;
 }

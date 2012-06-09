@@ -29,24 +29,28 @@ double ktoc(double k) // converts Kelvin to Celsius
 
 int main()
 {
-	cout << "This program can convert Celsius to Kelvin and Kelvin to Celsius.\n";
-	cout << "To convert Celsius to Kelvin type in: 45c or vice-versa 45k.\n";
-	double temp = 0;
-	string temp_type;
-	cin >> temp >> temp_type;
+	try {
+		cout << "This program can convert Celsius to Kelvin and Kelvin to Celsius.\n";
+		cout << "To convert Celsius to Kelvin type in: 45c or vice-versa 45k.\n";
+		double temp = 0;
+		string temp_type;
+		cin >> temp >> temp_type;
 
-	if (temp_type == "c") { 
-		double k = ctok(temp);
-		cout << k << endl;
+		if (temp_type == "c") { 
+			double k = ctok(temp);
+			cout << k << endl;
+		}
+		else if (temp_type == "k") {
+			double c = ktoc(temp);
+			cout << c << endl;
+		}
+		else {
+			cerr << "Invalid input.\n";
+			return 1;
+		}
 	}
-	else if (temp_type == "k") {
-		double c = ktoc(temp);
-		cout << c << endl;
+	catch(runtime_error e) {
+		cerr << e.what();
 	}
-	else {
-		cerr << "Invalid input.\n";
-		return 1;
-	}
-
 	return 0;
 }

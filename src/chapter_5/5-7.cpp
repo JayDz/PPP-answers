@@ -27,25 +27,26 @@ void print_roots(double a, double b, double c)
 
 int main()
 {
-	cout << "This program can find roots of quadratic equations, enter a, b, and c: ";
-	double a;
-	double b;
-	double c;
-	cin >> a >> b >> c;
+	try {
+		cout << "This program can find roots of quadratic equations, enter a, b, and c: ";
+		double a;
+		double b;
+		double c;
+		cin >> a >> b >> c;
 	
-	if (cin) {
-		if (a == 0) 
-			error("Since a = 0 you no longer have a quadratic equation.");
-			
-		try {
+		if (cin) {
+			if (a == 0) 
+				error("Since a = 0 you no longer have a quadratic equation.");
 			print_roots(a,b,c);
 		}
-		catch(Complex_number_error&) {
-			error("Sorry, program cannot handle complex solutions!");
-		}
+		else 
+			error("There was a problem with your input.");
 	}
-	else 
-		error("There was a problem with your input.");
-		
+	catch(Complex_number_error&) {
+		cerr << "Sorry, program cannot handle complex solutions!\n";
+	}
+	catch(runtime_error e) {
+		cerr << e.what() << endl;
+	}
 	return 0;
 }
