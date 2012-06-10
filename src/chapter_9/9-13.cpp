@@ -6,48 +6,76 @@
 
 class Rational {
 public:
-	Rational(double n, double d);
+	Rational(int n, int d);
 
-	void set_denominator(double d);
-	void set_numerator(double n);
-	double get_denominator() const { return denominator; }
-	double get_numerator() const { return numerator; }
+	void set_denominator(int d);
+	void set_numerator(int n);
+	int get_denominator() const { return denominator; }
+	int get_numerator() const { return numerator; }
 	
 	double convert_to_double() const;
+	void reduce();
 	class Divide_by_zero_error { };
 
 	Rational& operator=(const Rational& right_hand);
 private:
-	double numerator;
-	double denominator;
+	int numerator;
+	int denominator;
 };
 
-bool is_valid_denom(double d)
+// Code taken from: http://www.stroustrup.com/Programming/Solutions/Ch9/e9-13.cpp
+int gcd(int x, int y)
+	// greatest common denominator
+	// Euclid's algorithm (using remainder)
+{
+	x = abs(x);
+	y = abs(y);
+	while (y) {
+		int t = y;
+		y = x%y;
+		x = t;
+	}
+	return x;
+}
+
+bool is_valid_denom(int d)
 {
 	if (d != 0) return true;
 	return false;
 }
 
-Rational::Rational(double n, double d) 
+Rational::Rational(int n, int d) 
 	:numerator(n),denominator(d)
 {
 	if (!is_valid_denom(d)) throw Divide_by_zero_error();
+	reduce();
 }
 
-void Rational::set_numerator(double n)
+void Rational::reduce()
+{
+	int cd = gcd(numerator,denominator);
+	if (cd > 1) {
+		numerator /= cd;
+		denominator /= cd;
+	}
+}
+
+void Rational::set_numerator(int n)
 {
 	numerator = n;
+	reduce();
 }
 
-void Rational::set_denominator(double d)
+void Rational::set_denominator(int d)
 {
 	if (!is_valid_denom(d)) throw Divide_by_zero_error();
 	denominator = d;
+	reduce();
 }
 
 double Rational::convert_to_double() const
 {
-	return numerator / denominator;
+	return double(numerator) / denominator;
 }
 
 Rational& Rational::operator=(const Rational& right_hand)
@@ -59,10 +87,10 @@ Rational& Rational::operator=(const Rational& right_hand)
 
 Rational operator+(const Rational& left, const Rational& right)
 {
-	double l_numerator = left.get_numerator();
-	double l_denom     = left.get_denominator();
-	double r_numerator = right.get_numerator();
-	double r_denom     = right.get_denominator();
+	int l_numerator = left.get_numerator();
+	int l_denom     = left.get_denominator();
+	int r_numerator = right.get_numerator();
+	int r_denom     = right.get_denominator();
 	
 	if (l_denom != r_denom) {
 		l_numerator *= r_denom;
@@ -76,10 +104,10 @@ Rational operator+(const Rational& left, const Rational& right)
 
 Rational operator-(const Rational& left, const Rational& right)
 {
-	double l_numerator = left.get_numerator();
-	double l_denom     = left.get_denominator();
-	double r_numerator = right.get_numerator();
-	double r_denom     = right.get_denominator();
+	int l_numerator = left.get_numerator();
+	int l_denom     = left.get_denominator();
+	int r_numerator = right.get_numerator();
+	int r_denom     = right.get_denominator();
 
 	if (l_denom != r_denom) {
 		l_numerator *= r_denom;
@@ -118,31 +146,35 @@ bool operator!=(const Rational& left, const Rational& right)
 int main()
 {
 	try {
-		double n1 = 1;
-		double d1 = 2;
+		int n1 = 2;
+		int d1 = 4;
 		Rational r1(n1,d1);
 
-		double n2 = 1;
-		double d2 = 2;
+		int n2 = 4;
+		int d2 = 8;
 		Rational r2(n2,d2);
 
 		Rational temp = r1/r2;
-		cout << n1 << "/" << d1 << " divided by " << n2 << "/" << d2
+		cout << r1.get_numerator() << "/" << r1.get_denominator() << " divided by " 
+			<< r2.get_numerator() << "/" << r2.get_denominator()
 			<< " is: " << temp.get_numerator() << "/" << temp.get_denominator()
 			<< " or " << temp.convert_to_double() << endl;
 		
 		temp = r1*r2;	
-		cout << n1 << "/" << d1 << " multiplied by " << n2 << "/" << d2
+		cout << r1.get_numerator() << "/" << r1.get_denominator() << " multiplied by " 
+			<< r2.get_numerator() << "/" << r2.get_denominator()
 			<< " is: " << temp.get_numerator() << "/" << temp.get_denominator()
 			<< " or " << temp.convert_to_double() << endl;
 
 		temp = r1+r2;
-		cout << n1 << "/" << d1 << " plus " << n2 << "/" << d2
+		cout << r1.get_numerator() << "/" << r1.get_denominator() << " plus " 
+			<< r2.get_numerator() << "/" << r2.get_denominator()
 			<< " is: " << temp.get_numerator() << "/" << temp.get_denominator()
 			<< " or " << temp.convert_to_double() << endl;
 		
 		temp = r1-r2;
-		cout << n1 << "/" << d1 << " minus " << n2 << "/" << d2
+		cout << r1.get_numerator() << "/" << r1.get_denominator() << " minus " 
+			<< r2.get_numerator() << "/" << r2.get_denominator()
 			<< " is: " << temp.get_numerator() << "/" << temp.get_denominator()
 			<< " or " << temp.convert_to_double() << endl;
 
