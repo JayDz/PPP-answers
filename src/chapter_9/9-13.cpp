@@ -92,14 +92,8 @@ Rational operator+(const Rational& left, const Rational& right)
 	int r_numerator = right.get_numerator();
 	int r_denom     = right.get_denominator();
 	
-	if (l_denom != r_denom) {
-		l_numerator *= r_denom;
-		l_denom     *= r_denom;
-
-		r_numerator *= l_denom;
-		r_denom     *= l_denom;
-	}
-	return Rational(l_numerator + r_numerator, l_denom);
+	return Rational(l_numerator*r_denom+l_denom*r_numerator,
+		l_denom*r_denom);
 }
 
 Rational operator-(const Rational& left, const Rational& right)
@@ -109,15 +103,8 @@ Rational operator-(const Rational& left, const Rational& right)
 	int r_numerator = right.get_numerator();
 	int r_denom     = right.get_denominator();
 
-	if (l_denom != r_denom) {
-		l_numerator *= r_denom;
-		l_denom     *= r_denom;
-
-		r_numerator *= l_denom;
-		r_denom     *= l_denom;
-	}
-
-	return Rational(l_numerator - r_numerator, l_denom);
+	return Rational(l_numerator*r_denom-l_denom*r_numerator,
+		l_denom*r_denom);
 }
 
 Rational operator*(const Rational& left, const Rational& right)
