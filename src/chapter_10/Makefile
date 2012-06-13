@@ -17,8 +17,12 @@ exer2: 10-2.cpp $(headers)
 	$(recipe)
 exer3: 10-3.cpp $(headers)
 	$(recipe)
-exer4: 10-4.cpp $(headers)
+exer4_part01: 10-4-part01.cpp $(headers)
 	$(recipe)
+exer4_part02: 10-4-part02.cpp $(headers)
+	$(recipe)
+exer4:
+	@echo "Run: make exer4_part01 and make exer4_part02."
 exer5: 10-5.cpp $(headers)
 	$(recipe)
 exer8: 10-8.cpp $(headers)
