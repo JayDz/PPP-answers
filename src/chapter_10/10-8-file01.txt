@@ -1,0 +1,2 @@
+This is content for the first file of exercise eight of chapter ten.
+This is a new line of content.
