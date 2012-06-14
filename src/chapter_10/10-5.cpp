@@ -1,6 +1,6 @@
 /*
 	chapter 10 exercise 5
-	page 368
+	page 372
 */
 #include "std_lib_facilities.h"
 
