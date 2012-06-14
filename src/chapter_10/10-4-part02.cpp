@@ -17,8 +17,8 @@ double convert_to_fahrenheit(double temp)
 
 ifstream& operator>>(ifstream& is, Reading& r)
 {
-	int hour;
-	double temp;
+	int hour = 0;
+	double temp = 0;
 	char suffix = 'f';
 	is >> hour >> temp >> suffix;	
 	if (hour < 0 || hour > 13) // very unlikely to happen since we created the file ourself.
@@ -27,8 +27,6 @@ ifstream& operator>>(ifstream& is, Reading& r)
 	case 'f': break; // do nothing.
 	case 'c': 
 		temp = convert_to_fahrenheit(temp);
-		break;
-	case 10: //we've reached eof. Last character will be '\n' or integer 10.
 		break;
 	default: 
 		error("Invalid temperature suffix.");
