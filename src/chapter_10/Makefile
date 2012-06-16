@@ -29,8 +29,6 @@ exer8: 10-8.cpp $(headers)
 	$(recipe)
 exer9: 10-9.cpp $(headers)
 	$(recipe)
-exer11: 10-11.cpp $(headers)
-	$(recipe)
 exer12: 10-12.cpp $(headers)
 	$(recipe)
 .PHONY: clean
