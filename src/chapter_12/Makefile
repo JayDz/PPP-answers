@@ -1,7 +1,7 @@
 vpath %.h ../../include
 
 CC = g++
-CPPFLAGS = -I ../../include -Wall -lfltk
+CPPFLAGS = -I ../../include -Wall -lfltk -lfltk_gl -lfltk_images 
 #Stop warning for deprecated headers included by std_lib_facilities.h
 IGNORE = -Wno-deprecated
 headers = std_lib_facilities.h
