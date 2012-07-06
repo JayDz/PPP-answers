@@ -29,6 +29,6 @@ int main()
 	char* str = strdup(line.c_str());
 	cout << str << endl;
 	
-	delete str;
+	delete[] str;
 	return 0;
 }
