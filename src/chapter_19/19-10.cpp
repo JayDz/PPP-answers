@@ -8,7 +8,7 @@ template<class T> class _auto_ptr {
 	T* ptr;
 	bool destroy;
 public:
-	_auto_ptr(T* p): ptr(p),destroy(true){ }
+	explicit _auto_ptr(T* p): ptr(p),destroy(true){ }
 	~_auto_ptr() {  if (ptr && destroy) delete ptr; }
 
 	T* release();
