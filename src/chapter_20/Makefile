@@ -12,6 +12,8 @@ all:
 	@echo "USAGE <make exerX> where X is exercise number."
 exer7: 20-7.cpp $(headers)
 	$(recipe)
+exer11: 20-11.cpp $(headers)
+	$(recipe)
 .PHONY: clean
 clean:
 	@rm -rf exer*
