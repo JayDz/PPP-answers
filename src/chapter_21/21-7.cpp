@@ -5,8 +5,6 @@
 #include "std_lib_facilities.h"
 
 namespace exercise_7 {
-	//Created a namespace to avoid name collision with std::binary_search
-	
 	bool binary_search(const vector<int>& v, int value)
 	{
 		int mid = v.size() / 2;
