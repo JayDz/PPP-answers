@@ -20,6 +20,3 @@ Run solution:
 
 Remove all executables:
 	$ make clean
-
-LICENSE:
-http://creativecommons.org/licenses/by/3.0/legalcode
