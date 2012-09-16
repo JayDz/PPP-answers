@@ -7,13 +7,10 @@
 
 int main()
 {
-	//WARNING: this program greatly affected my computer's performance.
 	for (unsigned char i = 0; i < 256; ++i) {
 		std::cout << (int)i << ' ';
-		int scale = i;
+		int scale = i; //helps us crash sooner!
 		char* heap_array = new char[std::numeric_limits<unsigned char>::max()*scale];
-		*heap_array == i;
-		++heap_array;
 	}
 
 	return 0;
