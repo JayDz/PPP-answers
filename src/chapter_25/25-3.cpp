@@ -1,3 +1,7 @@
+/*
+	exercise 3 chapter 25
+	page 946
+*/
 #include <iostream>
 #include <bitset>
 using namespace std;
