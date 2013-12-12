@@ -5,7 +5,7 @@
 #include "std_lib_facilities.h"
 
 //helps avoid name collision between sort() and Name_pairs::sort()
-vector<string>& sort_names(vector<string>& name);
+void sort_names(vector<string>& name);
 
 class Name_pairs {
 public:
@@ -65,7 +65,7 @@ void Name_pairs::sort()
 		return;
 	}
 	vector<string> name_copy = name; //Follow strategy from exercise 7 of chapter 8.
-	name = sort_names(name);
+	sort_names(name);
 
 	vector<double> new_ages;
 	for (int i = 0; i < name.size(); ++i) 
@@ -80,10 +80,9 @@ void Name_pairs::sort()
 //needed because Name_pairs::sort() hides sort() when
 //called in a member function. sort() is provided by std_lib_facilities.h.
 //Without helper function, we get a compile-time error from g++.
-vector<string>& sort_names(vector<string>& name)
+void sort_names(vector<string>& name)
 {
 	sort(name.begin(),name.end());
-	return name;
 }
 
 int main()
